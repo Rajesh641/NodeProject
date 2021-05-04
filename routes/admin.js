@@ -1,21 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
+
+var bodyParser = require('body-parser');  
+// Create application/x-www-form-urlencoded parser  
+var urlencodedParser = bodyParser.urlencoded({ extended: false }) 
 
 const rootDir = require('../utils/path');
 
+const itemController = require('../controllers/item');
 
-router.get('/index', (req, res) => {
-    res.render('index-new');
-    
-})
 
-router.get('/download-picture', (req, res) => {
-    res.download(path.join(rootDir, 'views', 'index.html'));
-})
+router.get('/index', itemController.getindex)
 
-router.get('/download-itemList', (req, res) => {
-    res.download(path.join(rootDir, 'views', 'list.html'));
-})
+router.get('/items', itemController.getItems)
+
+router.get('/download-picture', itemController.downloadPicture)
+
+router.get('/download-itemList', itemController.downloaditem)
+
+router.post('/add-item',urlencodedParser,itemController.addItem)
 
 module.exports = router;

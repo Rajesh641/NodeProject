@@ -15,10 +15,9 @@ app.use(adminRoutes);
 
 const port = process.env.port || 3000 ;
 const rootDir = require('./utils/path');
+const errorController = require('./controllers/error');
 
-app.use((req, res, next) => {
-res.status(404).sendFile(path.join(rootDir, 'views', '404.html'));
-})
+app.use(errorController.get404error);
 
 app.listen(port, function(req, res){
     console.log('listning on ${port}');

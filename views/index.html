@@ -1,24 +1,13 @@
 <!DOCTYPE html>
-<html>
-<body>
-
-<h1>Welcome</h1>
-
-<p>List of product is here:</p>
-
-<button type="button" onclick="myFunction()">Click Me!</button>
-
+<html>  
+<body>  
+<form action="http://localhost:3000/add-item" method="POST">  
+First Name: <input type="text" name="first_name">  <br>  
+Last Name: <input type="text" name="last_name">  
+<input type="submit" value="Submit">  
+</form>  
 <p id="demo">Click to get list of products.</p>
-
 <a href="download-picture">Download file</a>
-
 <a href="download-itemList">Download list of items</a>
-
-<script>
-function myFunction() { 
-  document.getElementById("demo").innerHTML = "Hello Buddy...!";
-}
-</script>
-
-</body>
+</body>  
 </html>

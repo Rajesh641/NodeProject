@@ -1,11 +1,11 @@
 doctype html
-h1 Welcome
-p List of product is here:
-button(type='button' onclick='myFunction()') Click Me!
+form(action='http://localhost:3000/add-item' method='POST')
+  | First Name: 
+  input(type='text' name='first_name')
+  br
+  | Last Name: 
+  input(type='text' name='last_name')
+  input(type='submit' value='Submit')
 p#demo Click to get list of products.
 a(href='download-picture') Download file
 a(href='download-itemList') Download list of items
-script.
-  function myFunction() {
-  document.getElementById("demo").innerHTML = "Hello Buddy...!";
-  }
